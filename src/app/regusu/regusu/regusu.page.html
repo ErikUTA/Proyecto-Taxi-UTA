@@ -1,0 +1,60 @@
+<ion-header>
+  <ion-toolbar class="toolbar">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/"></ion-back-button> 
+    </ion-buttons>
+    <ion-title style="color: white;">Taxi UTA</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content style="--ion-background-color: rgba(0,0,0,0.712);">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Registro de Usuarios</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <div>
+    <ion-card style="margin: 10px; padding: 5px; --ion-background-color: rgba(0, 0, 0, 0.712);">
+
+      <h2 style="color: white; text-align: center;">Registros</h2>
+      <form (ngSubmit)="altaUser(forma)" #forma="ngForm">
+            <ion-item style="color: white; background: gray;">
+              <ion-label position="floating">Nombre</ion-label>
+              <ion-input [(ngModel)]="usu.strNombre" name="transparent" type="text"></ion-input>
+            </ion-item>
+            <ion-item style="color: white; background: gray;">
+              <ion-label position="floating">Contraseña</ion-label>
+              <ion-input [(ngModel)]="usu.strPassword" name="strPassword" type="password"></ion-input>
+            </ion-item>
+            <ion-item style="color: white; background: gray;">
+              <ion-label position="floating">Correo</ion-label>
+              <ion-input [(ngModel)]="usu.strCorreo" name="strCorreo" type="email"></ion-input>
+            </ion-item>
+            <ion-item style="color: white; background: gray;">
+              <ion-label position="floating">Direccion</ion-label>
+              <ion-input [(ngModel)]="usu.strDireccion" name="strDireccion" type="text"></ion-input>
+            </ion-item>
+            <ion-item style="color: white; background: gray;">
+              <ion-label position="floating">Edad</ion-label>
+              <ion-input [(ngModel)]="usu.nmbEdad" name="nmbEdad" type="number"></ion-input>
+            </ion-item>
+            <ion-item style="color: white; background: gray;">
+              <ion-label position="floating">Telefonos</ion-label>
+              <ion-input [(ngModel)]="usu.arrTelefonos" name="arrTelefonos" type="number"></ion-input>
+            </ion-item>
+              
+            <ion-item class="text" style="color: white; background: gray;">
+              <ion-label>Tipo de usuario</ion-label>
+              <ion-select [(ngModel)]="usu.tipo" placeholder="Select" name="tipo">
+                <ion-select-option value="Usuario">Pasajero</ion-select-option>
+                <ion-select-option value="Chofer">Chofer</ion-select-option>
+                <ion-select-option value="Administrador">Administrador</ion-select-option>
+              </ion-select>
+            </ion-item>
+          
+            <ion-button class="mt-3" expand="block" color="dark" type="submit">Guardar</ion-button>
+      </form>
+    </ion-card>
+  </div>
+</ion-content>

@@ -1,0 +1,21 @@
+.toolbar{  
+    --ion-toolbar-background: black;    
+}
+
+.Title{
+    color: white;    
+}
+
+.mapa{
+    height: 200px; 
+    width: 340px; 
+    border-radius: 10px; 
+    display: flex; 
+    margin: 10px;
+    justify-content: center; 
+    text-align: center;        
+}
+
+.ioncontent{
+    --background: url(../../../assets/fondoApp5.jpg) 0 0/100% 100% no-repeat;
+}

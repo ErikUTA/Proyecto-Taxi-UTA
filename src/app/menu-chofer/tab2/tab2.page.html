@@ -1,0 +1,93 @@
+<ion-header class="toolbar">
+  <ion-toolbar>    
+    <ion-title>
+      <strong class="Title">
+        Registro de coche
+      </strong>
+      <ion-icon (click)="cerrarSesion()" name="log-out-outline" style="float: right; width: 30px; height: 30px; color: goldenrod;"></ion-icon>      
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="ioncontent">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Registro de coche</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+    <ion-card style="margin: 10px; padding: 5px; --ion-background-color: rgba(0, 0, 0, 0.712);">
+      <form (ngSubmit)="altaCoche(forma)" #forma="ngForm">
+        <ion-item style="color: white; background: gray;">
+          <ion-label position="floating">Placas</ion-label>
+          <ion-input [(ngModel)]="coche.placasCarro" name="placasCarro"></ion-input>
+        </ion-item>
+        <ion-item style="color: white; background: gray;">
+          <ion-label position="floating">Modelo</ion-label>
+          <ion-input [(ngModel)]="coche.modeloCarro" name="modeloCarro"></ion-input>
+        </ion-item>
+        <ion-item style="color: white; background: gray;">
+          <ion-label position="floating">Año</ion-label>
+          <ion-input [(ngModel)]="coche.yearCarro" name="yearCarro"></ion-input>
+        </ion-item>
+        <ion-item style="color: white; background: gray;">
+          <ion-label position="floating">Color</ion-label>
+          <ion-input [(ngModel)]="coche.colorCarro" name="colorCarro"></ion-input>
+        </ion-item>
+
+        <ion-item class="text" style="color: white; background: gray;">
+          <ion-label>Se le agregará al chofer:</ion-label>
+          <ion-select [(ngModel)]="coche.idChofer" placeholder="Select" name="tipo">
+            <ion-select-option *ngFor="let chofer of choferCarrosService.choferes" value="{{chofer._id}}">{{chofer.strNombre}}</ion-select-option>
+          </ion-select>
+        </ion-item>
+
+        <ion-button style="margin-top: 8px; margin-bottom: 8px;" expand="block" color="primary" type="submit">Guardar carro</ion-button>
+
+      </form>
+
+      <ion-item class="text" style="color: white; background: gray;">
+        <ion-label>Ver autos del chofer:</ion-label>
+        <ion-select (ionChange)="obtenerCarrosChofer()" [(ngModel)]="choferFiltro" placeholder="Select" name="tipo">
+          <ion-select-option *ngFor="let chofer of choferCarrosService.choferes" value="{{chofer._id}}">{{chofer.strNombre}}</ion-select-option>
+        </ion-select>
+      </ion-item>
+
+      <div class="container pt-3">
+        <h2 style="color: rgb(219, 219, 219);">Datos del coche:</h2>    
+        <hr>
+    
+        <ion-card *ngFor="let carro of choferCarrosService.choferCarros" style="color: rgb(218, 218, 218);">
+          <ion-card-header>
+            <ion-card-title>{{carro.modeloCarro}} - {{carro.yearCarro}}</ion-card-title>
+          </ion-card-header>    
+          <ion-card-content>
+            <p style="font-size: 25px;"><span class="font-weight-bold">Placas: </span>{{carro.placasCarro}}</p>
+          </ion-card-content>
+        </ion-card>
+    
+      </div>
+
+    </ion-card>
+  
+  <hr style="height: 40px;">
+
+</ion-content>
+
+<ion-tabs style="max-height: 50px; top: auto;">
+  <ion-tab-bar slot="bottom">
+    <ion-tab-button (click)="Tab1()">              
+      <ion-label><ion-icon name="earth-outline" style="width: 30px; height: 30px;"></ion-icon></ion-label>                      
+    </ion-tab-button>
+
+    <ion-tab-button (click)="Tab2()">              
+      <ion-label><ion-icon name="car-sport-outline" style="width: 30px; height: 30px;"></ion-icon></ion-label>
+    </ion-tab-button>
+
+    <ion-tab-button (click)="Tab3()">    
+      <ion-label><ion-icon name="book-outline" style="width: 30px; height: 30px;"></ion-icon></ion-label>
+    </ion-tab-button>
+    
+  </ion-tab-bar>
+</ion-tabs> 
+

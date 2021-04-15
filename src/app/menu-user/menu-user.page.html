@@ -1,0 +1,57 @@
+
+<ion-header class="toolbar">
+  <ion-toolbar>
+    <ion-title>
+      <strong class="Title">
+        Pasajero
+      </strong>
+      <ion-icon (click)="cerrarSesion()" name="log-out-outline" style="float: right; width: 30px; height: 30px; color: goldenrod;"></ion-icon>      
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ioncontent">
+  
+  <div>
+    
+    <ion-card style="width: 340px; background-color: darkslategray; color: rgb(229, 226, 226);">            
+        <ion-card-header>
+          <h1 style="color: rgb(229, 226, 226);">Información del pasajero</h1>    
+        </ion-card-header>
+        <ion-card-content>
+          <h2>Nombre: {{ usuario1 }}</h2>
+          <h2>Dirección: {{ usuario2 }}</h2>
+        </ion-card-content>
+    </ion-card>
+
+  </div>
+  <div class="mapa" id="map"></div>  
+
+  <ion-button style="width: 340px; top: 70px; position: inherit; margin: 10px;" color="success" (click)="navegar()">Viajes</ion-button>
+
+  <!-- <div class="container">
+    <form>
+      <ion-item>
+        <ion-label position="stacked">Origen:</ion-label>
+        <ion-input>Universidad Tecnológica de Aguascalientes</ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="stacked">Destino:</ion-label>
+        <ion-input></ion-input>
+      </ion-item>
+      
+      <ion-item>
+        <ion-label position="floating">Ubicación del condcutor:</ion-label>
+        <ion-input></ion-input>
+      </ion-item>
+
+      <div class="buttons">
+        <ion-button class="col-6" color="success" (click)="pedir()">Pedir Raí</ion-button>
+      </div>
+    </form>
+  </div> -->
+
+  <hr>
+  
+</ion-content>
+
